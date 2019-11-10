@@ -53,11 +53,11 @@ public class MainView extends VerticalLayout implements RouterLayout {
         buttonClickEvent.getSource().getUI().ifPresent(ui -> ui.navigate("login"));
     }
 
-    private void switchToWeatherView(ClickEvent<Button> buttonClickEvent) {
+    public void switchToWeatherView(ClickEvent<Button> buttonClickEvent) {
         buttonClickEvent.getSource().getUI().ifPresent(ui -> ui.navigate("weather"));
     }
 
-    private void switchToCurrencyRates(ClickEvent<Button> buttonClickEvent) {
+    public void switchToCurrencyRates(ClickEvent<Button> buttonClickEvent) {
         buttonClickEvent.getSource().getUI().ifPresent(ui -> ui.navigate("currency"));
     }
 

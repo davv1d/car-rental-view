@@ -21,8 +21,8 @@ public class RentalRequestSender extends Request{
     }
 
     public ResponseEntity<Void> createRental(SaveRentalDto saveRentalDto) {
-        URI rentalWithoutParameterUri = rentalUrlCreator.getRentalWithoutParameterUri();
-        return sendRequestWithoutAuthorize(rentalWithoutParameterUri, HttpMethod.POST, Void.class, saveRentalDto);
+        URI rentalUri = rentalUrlCreator.createRentalUri();
+        return sendRequestWithAuthorize(rentalUri, HttpMethod.POST, Void.class, saveRentalDto);
     }
 
     public ResponseEntity<Void> deleteRental(String id) {
@@ -39,4 +39,10 @@ public class RentalRequestSender extends Request{
         URI rentalUriWthOneParameter = rentalUrlCreator.getRentalUriWthOneParameter("vin",vin);
         return sendRequestWithAuthorize(rentalUriWthOneParameter, HttpMethod.GET, RentalDto[].class, null);
     }
+
+    public ResponseEntity<RentalDto[]> getLoggedUserRentals() {
+        URI loggedUserRentals = rentalUrlCreator.getLoggedUserRentals();
+        return sendRequestWithAuthorize(loggedUserRentals, HttpMethod.GET, RentalDto[].class, null);
+    }
+
 }

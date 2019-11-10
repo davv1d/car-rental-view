@@ -24,7 +24,7 @@ public class AdminView extends VerticalLayout implements RouterLayout {
     private Button logoutButton;
 
     public AdminView(@Autowired MainView mainView) {
-        this.titleLabel = new Label("Welcome admin");
+        titleLabel = new Label("Welcome admin");
         menu = new HorizontalLayout();
         carButton = new Button("cars");
         carButton.addClickListener(this::switchCar);
@@ -39,11 +39,11 @@ public class AdminView extends VerticalLayout implements RouterLayout {
     }
 
     private void switchRentals(ClickEvent<Button> buttonClickEvent) {
-
+        buttonClickEvent.getSource().getUI().ifPresent(ui -> ui.navigate("rentals"));
     }
 
     private void switchUsers(ClickEvent<Button> buttonClickEvent) {
-
+        buttonClickEvent.getSource().getUI().ifPresent(ui -> ui.navigate("users"));
     }
 
     private void switchCar(ClickEvent<Button> buttonClickEvent) {

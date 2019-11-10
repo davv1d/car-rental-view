@@ -18,4 +18,12 @@ public class UserUrlCreator extends EndpointsCarRental{
         params.put("username", username);
         return createUriWithParams(userUrl, params);
     }
+
+    public URI getChangeEmailUri() {
+        return createUriWithoutParameters(changeEmail);
+    }
+
+    public URI getLoggedUserUri() {
+        return createUriWithoutParameters(loggedUserUrl);
+    }
 }

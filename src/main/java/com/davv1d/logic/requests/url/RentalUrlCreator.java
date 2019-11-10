@@ -18,4 +18,12 @@ public class RentalUrlCreator extends EndpointsCarRental{
         params.put(name, value);
         return createUriWithParams(rentalUrl, params);
     }
+
+    public URI createRentalUri() {
+        return createUriWithoutParameters(addRentalUrl);
+    }
+
+    public URI getLoggedUserRentals() {
+        return createUriWithoutParameters(loggedUserRentalUrl);
+    }
 }

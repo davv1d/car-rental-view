@@ -17,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
 @Route(value = "carsMenu", layout = AdminView.class)
 @SpringComponent

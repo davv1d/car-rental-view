@@ -23,7 +23,12 @@ public class EndpointsCarRental {
     final String ratesUrl = rootApiUrl + "/v1/rates";
 
     final String rentalUrl = rootApiUrl + "/v1/rental/";
+    final String addRentalUrl = rootApiUrl + "/v1/rental/create";
+    final String loggedUserRentalUrl = rootApiUrl + "/v1/rental/user";
+
     final String userUrl = rootApiUrl + "/v1/users/";
+    final String changeEmail = rootApiUrl + "/v1/users/email";
+    final String loggedUserUrl = rootApiUrl + "/v1/loggedUser";
 
     URI createUriWithoutParameters(String path) {
         return UriComponentsBuilder.fromHttpUrl(path).build().encode().toUri();
