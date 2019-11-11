@@ -28,6 +28,7 @@ public class MainView extends VerticalLayout implements RouterLayout {
     private Button currencyButton;
     private Button loginButton;
     private Button logoutButton;
+    private Button signUpButton;
     private HorizontalLayout menu;
 
     @Autowired
@@ -39,14 +40,20 @@ public class MainView extends VerticalLayout implements RouterLayout {
         currencyButton = new Button("Currency rates");
         loginButton = new Button("Login");
         logoutButton = new Button("Logout");
+        signUpButton = new Button("Sign Up");
         menu = new HorizontalLayout();
-        menu.add(weatherButton, currencyButton, loginButton, logoutButton);
+        menu.add(weatherButton, currencyButton, loginButton, logoutButton, signUpButton);
         logoutButton.addClickListener(this::logoutClick);
         logoutButton.setVisible(false);
         currencyButton.addClickListener(this::switchToCurrencyRates);
         weatherButton.addClickListener(this::switchToWeatherView);
         loginButton.addClickListener(this::switchToLogin);
+        signUpButton.addClickListener(this::signUpClick);
         add(titleLabel, menu);
+    }
+
+    private void signUpClick(ClickEvent<Button> buttonClickEvent) {
+        buttonClickEvent.getSource().getUI().ifPresent(ui -> ui.navigate("sign-up"));
     }
 
     private void switchToLogin(ClickEvent<Button> buttonClickEvent) {
@@ -65,10 +72,6 @@ public class MainView extends VerticalLayout implements RouterLayout {
         cookieMaker.removeCookie();
         loginButton.setVisible(true);
         logoutButton.setVisible(false);
-        Router router = UI.getCurrent().getRouter();
-        List<RouteData> routes = router.getRoutes();
-//        routes.stream()
-//                .filter()
         buttonClickEvent.getSource().getUI().ifPresent(ui -> ui.navigate(""));
     }
 
