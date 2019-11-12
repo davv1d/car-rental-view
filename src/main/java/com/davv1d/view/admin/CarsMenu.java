@@ -51,6 +51,8 @@ public class CarsMenu extends VerticalLayout {
 
     private void getCars(ClickEvent<Button> buttonClickEvent) {
         ResponseEntity<Car[]> cars = carRequestSender.getCars();
-        carGrid.setItems(Arrays.asList(cars.getBody()));
+        if (cars.getBody() != null) {
+            carGrid.setItems(Arrays.asList(cars.getBody()));
+        }
     }
 }

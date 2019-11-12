@@ -39,8 +39,8 @@ public class CarRequestSender extends Request {
         return sendRequestWithAuthorize(deleteCarUrl, HttpMethod.DELETE, Void.class, null);
     }
 
-    public ResponseEntity<Void> changeAvailabilityCar(final Car car) {
+    public ResponseEntity<Void> changeAvailabilityCar(final String vinNumber) {
         URI availabilityCarUrl = carUrl.changeAvailabilityCarUrl();
-        return sendRequestWithAuthorize(availabilityCarUrl, HttpMethod.PUT, Void.class, car);
+        return sendRequestWithAuthorize(availabilityCarUrl, HttpMethod.PUT, Void.class, vinNumber);
     }
 }

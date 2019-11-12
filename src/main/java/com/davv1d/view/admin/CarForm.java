@@ -42,7 +42,7 @@ public class CarForm extends FormLayout {
 
     private void changeAvailability(ClickEvent<Button> buttonClickEvent) {
         Car car = binder.getBean();
-        carRequestSender.changeAvailabilityCar(car);
+        carRequestSender.changeAvailabilityCar(car.getVinNumber());
     }
 
     private void deleteCar(ClickEvent<Button> buttonClickEvent) {
@@ -51,8 +51,14 @@ public class CarForm extends FormLayout {
     }
 
     private void saveCar(ClickEvent<Button> buttonClickEvent) {
-        Car car = binder.getBean();
-        carRequestSender.createCar(car);
+        String brandValue = brand.getValue();
+        String modelValue = model.getValue();
+        String vinNumberValue = vinNumber.getValue();
+        Boolean availabilityValue = availability.getValue();
+        if (!brandValue.isEmpty() && !modelValue.isEmpty() && !vinNumberValue.isEmpty()) {
+            Car car = new Car(brandValue, modelValue, vinNumberValue, availabilityValue);
+            carRequestSender.createCar(car);
+        }
     }
 
     public void setCar(Car car) {

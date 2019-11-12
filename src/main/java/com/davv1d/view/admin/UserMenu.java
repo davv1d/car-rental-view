@@ -50,7 +50,8 @@ public class UserMenu extends VerticalLayout {
         User user = binder.getBean();
         if (!user.getUsername().isEmpty()) {
             ResponseEntity<User> userByUsername = usersRequestSender.getUserByUsername(user.getUsername());
-            userGrid.setItems(Collections.singletonList(userByUsername.getBody()));
+            if (!userByUsername.getStatusCode().isError())
+                userGrid.setItems(Collections.singletonList(userByUsername.getBody()));
         }
     }
 
@@ -68,6 +69,9 @@ public class UserMenu extends VerticalLayout {
 
     private void refreshUserGrid() {
         ResponseEntity<User[]> allUsers = usersRequestSender.getAllUsers();
-        userGrid.setItems(Arrays.asList(allUsers.getBody()));
+        if (!allUsers.getStatusCode().isError()) {
+            User[] body = allUsers.getBody();
+            userGrid.setItems(Arrays.asList(body));
+        }
     }
 }
