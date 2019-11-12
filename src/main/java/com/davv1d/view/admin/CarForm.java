@@ -56,7 +56,7 @@ public class CarForm extends FormLayout {
         String vinNumberValue = vinNumber.getValue();
         Boolean availabilityValue = availability.getValue();
         if (!brandValue.isEmpty() && !modelValue.isEmpty() && !vinNumberValue.isEmpty()) {
-            Car car = new Car(brandValue, modelValue, vinNumberValue, availabilityValue);
+            Car car = new Car(vinNumberValue, brandValue, modelValue, availabilityValue);
             carRequestSender.createCar(car);
         }
     }
