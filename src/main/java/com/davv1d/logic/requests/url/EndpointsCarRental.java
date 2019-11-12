@@ -8,7 +8,9 @@ import java.util.Map;
 public class EndpointsCarRental {
     final String rootApiUrl = "http://localhost:8080";
 
-    final String availabilityCarUrl = rootApiUrl + "/v1/cars/availability";
+    final String getAvailabilityCarUrl = rootApiUrl + "/v1/cars/availability";
+    final String changeAvailabilityCarUrl = rootApiUrl + "/v1/cars/availability/change";
+
     final String carsUrl = rootApiUrl + "/v1/cars/getCars";
     final String carByVinUrl = rootApiUrl + "/v1/cars/getCar/";
     final String createCarUrl = rootApiUrl + "/v1/cars/createCars";
@@ -17,8 +19,8 @@ public class EndpointsCarRental {
     final String conditionForecastUrl = rootApiUrl + "/v1/condition/forecast/";
     final String conditionWeatherUrl = rootApiUrl + "/v1/condition/weather/";
 
-    final String signInUrl = rootApiUrl + "/api/auth/signin";
-    final String singUpUrl = rootApiUrl + "/api/auth//signup";
+    final String signInUrl = rootApiUrl + "/v1/api/auth/signin";
+    final String singUpUrl = rootApiUrl + "/v1/api/auth//signup";
 
     final String ratesUrl = rootApiUrl + "/v1/rates";
 

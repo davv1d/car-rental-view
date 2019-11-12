@@ -1,6 +1,5 @@
 package com.davv1d.logic.requests.url;
 
-import com.davv1d.logic.domain.car.Car;
 import org.springframework.stereotype.Component;
 
 import java.net.URI;
@@ -13,7 +12,7 @@ public class CarUrl extends EndpointsCarRental {
         Map<String, String> params = new LinkedHashMap<>();
         params.put("dateOfRent", dateOfRent);
         params.put("dateOfReturn", dateOfReturn);
-        return createUriWithParams(availabilityCarUrl, params);
+        return createUriWithParams(getAvailabilityCarUrl, params);
     }
 
     public URI getCarsUri() {
@@ -37,6 +36,6 @@ public class CarUrl extends EndpointsCarRental {
     }
 
     public URI changeAvailabilityCarUrl() {
-        return createUriWithoutParameters(availabilityCarUrl);
+        return createUriWithoutParameters(changeAvailabilityCarUrl);
     }
 }
